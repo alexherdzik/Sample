@@ -74,6 +74,6 @@ function setPages($table, numPages, currentPage, numPerPage){
     	}
     }
         
-   	$pager.insertBefore($table);
+    $pager.insertBefore($table);
    	$('#'+$table.attr('id')+'_page_'+currentPage).addClass('active');
 }
