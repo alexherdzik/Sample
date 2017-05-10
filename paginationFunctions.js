@@ -10,11 +10,11 @@ function paginate(table_id, currentPage, numPerPage){
     //If on last page and delete causes numPages to decrease move currentPage back as well
     if(currentPage > numPages) currentPage = numPages;
     
-    repaginate($table, currentPage, numPerPage);
+    showItems($table, currentPage, numPerPage);
     setPages($table, numPages, currentPage, numPerPage);
 }
 
-function repaginate($table, currentPage, numPerPage){
+function showItems($table, currentPage, numPerPage){
 	$table.find('tbody tr.inplay').hide().slice((currentPage - 1) * numPerPage, currentPage * numPerPage).show();
 }
 
@@ -31,7 +31,7 @@ function setPages($table, numPages, currentPage, numPerPage){
             newPage: 1
         }, function(event) {
             currentPage = event.data['newPage'];
-            repaginate($table, currentPage, numPerPage);
+            showItems($table, currentPage, numPerPage);
             setPages($table, numPages, currentPage, numPerPage);
         }).appendTo($pager).addClass('clickable');
         
@@ -48,14 +48,14 @@ function setPages($table, numPages, currentPage, numPerPage){
 		            newPage: page
 		        }, function(event) {
 		            currentPage = event.data['newPage'];
-		            repaginate($table, currentPage, numPerPage);
+		            showItems($table, currentPage, numPerPage);
 		            setPages($table, numPages, currentPage, numPerPage);
 		        }).appendTo($pager).addClass('clickable');
 	        
 	        }
         }
     
-		//If numPages != 1 always print last page
+        //If numPages != 1 always print last page
     	if (numPages > 1){
 	    	
 	    	//if skipping a number print '...'
@@ -67,7 +67,7 @@ function setPages($table, numPages, currentPage, numPerPage){
 	            newPage: numPages
 	        }, function(event) {
 	            currentPage = event.data['newPage'];
-	            repaginate($table, currentPage, numPerPage);
+	            showItems($table, currentPage, numPerPage);
 	            setPages($table, numPages, currentPage, numPerPage);
 	        }).appendTo($pager).addClass('clickable');
 
