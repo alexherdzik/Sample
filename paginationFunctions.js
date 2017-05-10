@@ -1,5 +1,5 @@
 function paginate(table_id, currentPage, numPerPage){
-    if (currentPage === undefined || currentPage == 0) currentPage = 1;
+    if (currentPage === undefined || currentPage === 0) currentPage = 1;
     if (numPerPage === undefined) numPerPage = 10;
     
     var $table = $('#'+table_id);
