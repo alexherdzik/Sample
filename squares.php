@@ -5,18 +5,18 @@ $_fp = fopen("php://stdin", "r");
 $input = fgets($_fp);
 echo sum_of_squares($input);
 
-//Functions
-function sum_of_squares($k)
-$total = 0;
-for($i = 1; $i <= $k; $i++) {
-    $array = to_array($i);
-    $sum = sum_of_squares_array($array);
-    if (is_square($sum)) {
-        $total += $i;
+/*** Functions ***/
+function sum_of_squares($k) {
+    $total = 0;
+    for($i = 1; $i <= $k; $i++) {
+        $array = to_array($i);
+        $sum = sum_of_squares_array($array);
+        if (is_square($sum)) {
+            $total += $i;
+        }
     }
     return $total;
 }
-
 function to_array($string) {
     $array = array();
     for($i = 0; $i < strlen($string); $i++) {
@@ -24,11 +24,9 @@ function to_array($string) {
     }
     return $array;
 }
-
 function square($num) {
     return ($num * $num);
 }
-
 //Take an array of digits and get the sum of all their squares
 function sum_of_squares_array($array) {
     $sum = 0;
@@ -37,7 +35,6 @@ function sum_of_squares_array($array) {
     }
     return $sum;
 }
-
 function is_square($num) {
     for($i = 1; $i <= $num; $i++) {
         if (($num / $i) === $i){
@@ -49,5 +46,4 @@ function is_square($num) {
         }
     }
 }
-
 ?>
