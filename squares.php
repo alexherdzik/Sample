@@ -1,7 +1,10 @@
 <?php
-$_fp = fopen("php://stdin", "r");
+/*
+Take an input and for 1 <= n <= k find all numbers where the sum of each digit squared in a number is a perfect square
+i.e. if k = 100 output 826
+*/
 
-//Take an input and for 1 <= n <= k find all numbers where the sum of each digit squared in a number is a perfect square   
+$_fp = fopen("php://stdin", "r");
 $input = fgets($_fp);
 echo sum_of_squares($input);
 
